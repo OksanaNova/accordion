@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Accordion } from './Accordion/Accordion';
 import './App.css'
 import Tabs from './Tabs/Tabs';
@@ -16,7 +16,7 @@ function App() {
 
 
   return (
-    <div>
+    <Fragment>
       <Accordion />
       <br/>
 
@@ -26,19 +26,14 @@ function App() {
       {activeTab === 2 && <TabInfoThree />}
       <br/>
 
-
       <button onClick={() => setIsModalOpen(true)}>OPEN MODAL WINDOW</button>
 
       {isModalOpen && 
-      <Modal setIsModalOpen={{setIsModalOpen}}>
+      <Modal setIsModalOpen={setIsModalOpen}>
         <Content setIsModalOpen={setIsModalOpen}/>
       </Modal>}
 
-    </div>
-
-    
-    
-
+    </Fragment>
   )
 }
 
