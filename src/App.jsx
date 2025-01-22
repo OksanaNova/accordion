@@ -8,6 +8,7 @@ import TabInfoThree from './Tabs/TabInfoThree';
 import Modal from './Modal/Modal';
 import Content from './Modal/Content';
 import LoaderPage from './Loader/LoaderPage';
+import Swal from 'sweetalert2';
 
 function App() {
 
@@ -22,6 +23,13 @@ function App() {
     return () => clearTimeout(timer)
   }, [])
 
+  const handleAlert = () => {
+    Swal.fire({
+      title: "The Internet?",
+      text: "That thing is still around?",
+      icon: "question"
+    });
+  }
 
   return (
     <Fragment>
@@ -52,12 +60,11 @@ function App() {
 {/* LOADER */}
 
       { stateLoader && <LoaderPage />}
+      <br/>
 
+      {/* SWEET ALERT */}
 
-
-
-      
-
+      <button onClick={handleAlert}>ALERT</button>
 
 
 
