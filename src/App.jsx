@@ -9,6 +9,7 @@ import Modal from './Modal/Modal';
 import Content from './Modal/Content';
 import LoaderPage from './Loader/LoaderPage';
 import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next';
 
 function App() {
 
@@ -29,6 +30,12 @@ function App() {
       text: "That thing is still around?",
       icon: "question"
     });
+  }
+
+  const { i18n, t } = useTranslation();
+
+  const toggleLang = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en')
   }
 
   return (
@@ -62,9 +69,21 @@ function App() {
       { stateLoader && <LoaderPage />}
       <br/>
 
-      {/* SWEET ALERT */}
+{/* SWEET ALERT */}
 
       <button onClick={handleAlert}>ALERT</button>
+
+{/* TRANSLATION */}
+
+        <h1>{t('Welcome to React')}</h1>
+
+        <p>{t('How is your day')}</p>
+
+        <button onClick={toggleLang}>
+          {i18n.language === 'en' ? 'EN' : 'RU'}
+        </button>
+
+
 
 
 
